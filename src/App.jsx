@@ -8,6 +8,10 @@ import Mascotas from './pages/Admin/Mascotas/Mascotas.jsx'
 import Citas from './pages/Admin/Citas/Citas.jsx'
 
 
+// Cliente (carpeta Users)
+import PerfilUser from "./pages/Users/PerfilUser.jsx";
+import MisMascotas from "./pages/Users/MisMascotas.jsx";
+import MisCitas from "./pages/Users/MisCitas.jsx";
 import Navbar from "./components/Navbar/AppNavbar.jsx";
 import Login from "./pages/Login/Login.jsx";
 import Register from "./pages/Registro/Registro.jsx";
@@ -27,6 +31,11 @@ function App() {
         <Route path="/admin/habitaciones" element={<Habitaciones />} />
         <Route path="/admin/mascotas" element={<Mascotas />} />
         <Route path="/admin/citas" element={<Citas />} />
+
+        <Route path="/perfil" element={<PerfilUser />} />
+        <Route path="/mis-mascotas" element={<MisMascotas />} />
+        <Route path="/mis-citas" element={<MisCitas />} />
+
       </Routes>
     </BrowserRouter>
   )
