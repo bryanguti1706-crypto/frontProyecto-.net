@@ -15,12 +15,13 @@ import Register from "./pages/Registro/Registro.jsx";
 function App() {
   return (
     <BrowserRouter>
-    <Navbar />
+    
       <Routes>
         <Route path="/" element={<Login />} />
 
 
         <Route path="/Registro" element={<Register />} />
+        <Route path="/Inicio" element={<Inicio />} />
         <Route path="/admin/users" element={<Usuarios />} />
         <Route path="/admin/tipomascotas" element={<TipoMascotas />} />
         <Route path="/admin/habitaciones" element={<Habitaciones />} />

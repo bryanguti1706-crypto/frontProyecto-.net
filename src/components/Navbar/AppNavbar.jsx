@@ -24,7 +24,7 @@ function AppNavbar() {
       </Link>
 
       <div className="menu">
-        <NavLink to="/">Inicio</NavLink>
+        <NavLink to="/Inicio">Inicio</NavLink>
         <NavLink to="/quienes-somos">Quiénes somos</NavLink>
         <NavLink to="/adoptar">Adoptar</NavLink>
 
@@ -52,8 +52,8 @@ function AppNavbar() {
           </>
         ) : (
           <>
-            <NavLink to="/login">Login</NavLink>
-            <NavLink to="/signup">Registrarse</NavLink>
+            <NavLink to="/">Login</NavLink>
+            <NavLink to="/Registro">Registrarse</NavLink>
           </>
         )}
       </div>
