@@ -1,7 +1,6 @@
 import MainLayout from "../../../layouts/MainLayout";
 import AdminCrudPage from "../../../components/AdminCrudPage/AdminCrudPage";
 import { userService } from "../../../services/UserService";
-
 function Usuarios() {
   return (
     <MainLayout>

@@ -30,14 +30,16 @@ function Login() {
                 JSON.stringify(response.data.usuario)
             );
 
-           
+
 
             console.log("ROLE:", response.data.role);
             if (response.data.role === "ADMIN") {
                 navigate("/admin/users");
             } else {
-                navigate("/mis-citas"); 
+                navigate("/mis-citas");
             }
+            localStorage.setItem("token", response.data.token);
+            localStorage.setItem("role", response.data.role);
 
         } catch {
 
@@ -48,7 +50,7 @@ function Login() {
 
     return (
 
-        
+
         <div className="page">
             <div className="login-negroni">
                 <div className="login-card">
