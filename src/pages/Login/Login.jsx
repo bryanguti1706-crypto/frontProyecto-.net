@@ -15,7 +15,7 @@ function Login() {
         try {
 
             const response = await axios.post(
-                "https://localhost:7223/api/Auth/login",
+                "http://localhost:7223/api/Auth/login",
                 {
                     correo,
                     password
@@ -34,7 +34,7 @@ function Login() {
 
             console.log("ROLE:", response.data.role);
             if (response.data.role === "ADMIN") {
-                navigate("/admin/users");
+                navigate("/Inicio");
             } else {
                 navigate("/mis-citas");
             }

@@ -23,7 +23,7 @@ function Register() {
         try {
 
             await axios.post(
-                "https://localhost:7223/api/Users",
+                "http://localhost:7223/api/Users",
                 {
                     nombre: nombre,
                     correo: correo,

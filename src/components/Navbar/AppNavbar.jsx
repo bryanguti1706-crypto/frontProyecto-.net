@@ -1,33 +1,32 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom'
-import logo from '../../assets/images/LogSalem.png'
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import logo from "../../assets/images/LogSalem.png";
 
 function AppNavbar() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const token = localStorage.getItem('token')
-  const user = JSON.parse(localStorage.getItem('user') || 'null')
+  const token = localStorage.getItem("token");
+  const role = localStorage.getItem("role");
 
-  const isLogged = !!token
-  const isAdmin = user?.role === 'admin' || user?.role === 'ADMIN'
+  const isLogged = !!token;
+  const isAdmin = role === "ADMIN";
 
   const cerrarSesion = () => {
-    localStorage.removeItem('token')
-    localStorage.removeItem('user')
-    navigate('/')
-  }
+    localStorage.removeItem("token");
+    localStorage.removeItem("usuario");
+    localStorage.removeItem("role");
+    navigate("/");
+  };
 
   return (
     <nav className="navbar-salem">
-      <Link className="brand" to="/">
+      <Link className="brand" to="/inicio">
         <img src={logo} alt="Logo Salem" className="brand-logo" />
         <span>La Guardería de Salem</span>
       </Link>
 
       <div className="menu">
-        <NavLink to="/Inicio">Inicio</NavLink>
+        <NavLink to="/inicio">Inicio</NavLink>
         <NavLink to="/quienes-somos">Quiénes somos</NavLink>
-        <NavLink to="/adoptar">Adoptar</NavLink>
-
         {isLogged && isAdmin && (
           <details className="dropdown">
             <summary>Administración</summary>
@@ -53,12 +52,12 @@ function AppNavbar() {
         ) : (
           <>
             <NavLink to="/">Login</NavLink>
-            <NavLink to="/Registro">Registrarse</NavLink>
+            <NavLink to="/registro">Registrarse</NavLink>
           </>
         )}
       </div>
     </nav>
-  )
+  );
 }
 
-export default AppNavbar
+export default AppNavbar;

@@ -86,22 +86,22 @@ function AdminCrudPage({
       setError(
         err.response?.data?.message ||
           JSON.stringify(err.response?.data) ||
-          "Error al guardar."
+          "Error al guardar.",
       );
     }
   };
 
   const handleEdit = (item) => {
-  setEditingId(item.id);
+    setEditingId(item.id);
 
-  const itemLimpio = { ...item };
+    const itemLimpio = { ...item };
 
-  if ("password" in initialForm) {
-    itemLimpio.password = "";
-  }
+    if ("password" in initialForm) {
+      itemLimpio.password = "";
+    }
 
-  setForm({ ...initialForm, ...itemLimpio });
-};
+    setForm({ ...initialForm, ...itemLimpio });
+  };
 
   const handleDelete = async (id) => {
     if (!confirm("¿Seguro que deseas eliminar este registro?")) return;
@@ -123,87 +123,90 @@ function AdminCrudPage({
       {message && <div className="alert-success-salem">{message}</div>}
       {error && <div className="alert-error-salem">{error}</div>}
       {fields.length > 0 && (
-      <form className="admin-form" onSubmit={handleSubmit}>
-        <h4>{editingId ? "Editar registro" : "Crear registro"}</h4>
+        <form className="admin-form" onSubmit={handleSubmit}>
+          <h4>{editingId ? "Editar registro" : "Crear registro"}</h4>
 
-        <div className="form-grid-salem">
-          {fields.map((field) => (
-            <div className="form-group-salem" key={field.name}>
-              {field.type === "checkbox" ? (
-                <div className="form-check-salem">
-                  <input
-                    type="checkbox"
-                    name={field.name}
-                    checked={form[field.name] || false}
-                    onChange={handleChange}
-                  />
-                  <label>{field.label}</label>
-                </div>
-              ) : (
-                <>
-                  <label>{field.label}</label>
-
-                  {field.type === "select" ? (
-                    <select
-                      name={field.name}
-                      value={form[field.name] || ""}
-                      onChange={handleChange}
-                      required={field.required}
-                      disabled={
-                        typeof field.disabled === "function"
-                          ? field.disabled(form)
-                          : field.disabled
-                      }
-                    >
-                      <option value="">Seleccione...</option>
-
-                      {field.options?.map((option) => (
-                        <option key={option.value} value={option.value}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </select>
+          <div className="form-grid-salem">
+            {fields
+              .filter((field) => !(editingId && field.name === "password"))
+              .map((field) => (
+                <div className="form-group-salem" key={field.name}>
+                  {field.type === "checkbox" ? (
+                    <div className="form-check-salem">
+                      <input
+                        type="checkbox"
+                        name={field.name}
+                        checked={form[field.name] || false}
+                        onChange={handleChange}
+                      />
+                      <label>{field.label}</label>
+                    </div>
                   ) : (
-                    <input
-                      type={field.type || "text"}
-                      name={field.name}
-                      value={form[field.name] || ""}
-                      min={
-                        typeof field.min === "function"
-                          ? field.min(form)
-                          : field.min
-                      }
-                      disabled={
-                        typeof field.disabled === "function"
-                          ? field.disabled(form)
-                          : field.disabled
-                      }
-                      onChange={handleChange}
-                      required={field.required}
-                    />
+                    <>
+                      <label>{field.label}</label>
+
+                      {field.type === "select" ? (
+                        <select
+                          name={field.name}
+                          value={form[field.name] || ""}
+                          onChange={handleChange}
+                          required={field.required}
+                          disabled={
+                            typeof field.disabled === "function"
+                              ? field.disabled(form)
+                              : field.disabled
+                          }
+                        >
+                          <option value="">Seleccione...</option>
+
+                          {field.options?.map((option) => (
+                            <option key={option.value} value={option.value}>
+                              {option.label}
+                            </option>
+                          ))}
+                        </select>
+                      ) : (
+                        <input
+                          type={field.type || "text"}
+                          name={field.name}
+                          value={form[field.name] || ""}
+                          min={
+                            typeof field.min === "function"
+                              ? field.min(form)
+                              : field.min
+                          }
+                          disabled={
+                            typeof field.disabled === "function"
+                              ? field.disabled(form)
+                              : field.disabled
+                          }
+                          onChange={handleChange}
+                          required={field.required}
+                        />
+                      )}
+                    </>
                   )}
-                </>
-              )}
-            </div>
-          ))}
-        </div>
+                </div>
+              ))}
+          </div>
 
-        <div className="form-actions-salem">
-          <button className="btn-save-salem" type="submit">
-            {editingId ? "Actualizar" : "Guardar"}
-          </button>
-
-          {editingId && (
-            <button
-              className="btn-cancel-salem"
-              type="button"
-              onClick={resetForm}
-            >
-              Cancelar
+          <div className="form-actions-salem">
+            <button className="btn-save-salem" type="submit">
+              {editingId ? "Actualizar" : "Guardar"}
             </button>
-          )}
-        </div>
-      </form>)}
+
+            {editingId && (
+              <button
+                className="btn-cancel-salem"
+                type="button"
+                onClick={resetForm}
+              >
+                Cancelar
+              </button>
+            )}
+          </div>
+        </form>
+      )}
 
       <h2 className="admin-subtitle">{title} registrados</h2>
 
