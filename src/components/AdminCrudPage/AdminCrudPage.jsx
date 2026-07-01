@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 
 function AdminCrudPage({
   title,
-  fields,
-  columns,
+  fields = [],
+  columns = [],
   service,
-  initialForm,
+  initialForm = {},
   beforeSubmit,
   onFieldChange,
 }) {
@@ -122,7 +122,7 @@ function AdminCrudPage({
 
       {message && <div className="alert-success-salem">{message}</div>}
       {error && <div className="alert-error-salem">{error}</div>}
-
+      {fields.length > 0 && (
       <form className="admin-form" onSubmit={handleSubmit}>
         <h4>{editingId ? "Editar registro" : "Crear registro"}</h4>
 
@@ -203,7 +203,7 @@ function AdminCrudPage({
             </button>
           )}
         </div>
-      </form>
+      </form>)}
 
       <h2 className="admin-subtitle">{title} registrados</h2>
 

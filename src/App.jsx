@@ -6,6 +6,7 @@ import TipoMascotas from './pages/Admin/TipoMascotas/TipoMascotas.jsx'
 import Habitaciones from './pages/Admin/Habitaciones/Habitaciones.jsx'
 import Mascotas from './pages/Admin/Mascotas/Mascotas.jsx'
 import Citas from './pages/Admin/Citas/Citas.jsx'
+import QuienesSomos from './pages/Inicio/Quienes.jsx'
 
 
 // Cliente (carpeta Users)
@@ -35,7 +36,7 @@ function App() {
         <Route path="/perfil" element={<PerfilUser />} />
         <Route path="/mis-mascotas" element={<MisMascotas />} />
         <Route path="/mis-citas" element={<MisCitas />} />
-
+        <Route path="/quienes-somos" element={<QuienesSomos />} />
       </Routes>
     </BrowserRouter>
   )

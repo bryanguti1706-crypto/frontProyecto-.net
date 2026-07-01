@@ -30,13 +30,13 @@ function Login() {
                 JSON.stringify(response.data.usuario)
             );
 
-            alert("Login correcto");
+           
 
             console.log("ROLE:", response.data.role);
             if (response.data.role === "ADMIN") {
                 navigate("/admin/users");
             } else {
-                navigate("/user"); 
+                navigate("/mis-citas"); 
             }
 
         } catch {
@@ -104,7 +104,7 @@ function Login() {
                             </div>
 
                             <div className="text-center mt-2 small">
-                                No tienes cuenta?
+                                ¿No tienes cuenta?
                                 <Link to="/Registro" className="fw-semibold">
                                     {" "}Regístrate aquí
                                 </Link>
@@ -117,7 +117,7 @@ function Login() {
 
             </div>
             <footer>
-                <p>� 2026 La Guarder�a de Salem</p>
+                <p>© 2026 La Guardería de Salem</p>
             </footer>
         </div>
     );

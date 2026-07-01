@@ -16,7 +16,7 @@ function Register() {
         e.preventDefault();
 
         if (password !== confirmarPassword) {
-            setMensaje("Las contraseñas no coinciden");
+            setMensaje("Las contraseÃ±as no coinciden");
             return;
         }
 
@@ -54,7 +54,7 @@ function Register() {
                 style={{ maxWidth: "500px", margin: "40px auto" }}
             >
                 <h2 className="text-center mb-4">
-                    Registro en La Guardería de Salem
+                    Registro en La GuarderÃ­a de Salem
                 </h2>
 
                 <div id="mensaje"></div>
@@ -76,7 +76,7 @@ function Register() {
 
                     <div className="mb-3">
                         <label htmlFor="correo" className="form-label">
-                            Correo electrónico:
+                            Correo electrÃ³nico:
                         </label>
 
                         <input
@@ -90,7 +90,7 @@ function Register() {
 
                     <div className="mb-3">
                         <label htmlFor="password" className="form-label">
-                            Contraseña:
+                            ContraseÃ±a:
                         </label>
 
                         <input
@@ -107,7 +107,7 @@ function Register() {
                             htmlFor="password_confirmation"
                             className="form-label"
                         >
-                            Confirmar contraseña:
+                            Confirmar contraseÃ±a:
                         </label>
 
                         <input
@@ -141,7 +141,7 @@ function Register() {
             </div>
 
             <footer className="text-center mt-5">
-                <p>© 2026 La Guardería de Salem</p>
+                <p>Â© 2026 La GuarderÃ­a de Salem</p>
             </footer>
         </div>
     );

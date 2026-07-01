@@ -13,7 +13,7 @@ function AppNavbar() {
   const cerrarSesion = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('user')
-    navigate('/login')
+    navigate('/')
   }
 
   return (
