@@ -12,13 +12,19 @@ import Citas from './pages/Admin/Citas/Citas.jsx'
 import PerfilUser from "./pages/Users/PerfilUser.jsx";
 import MisMascotas from "./pages/Users/MisMascotas.jsx";
 import MisCitas from "./pages/Users/MisCitas.jsx";
+import Navbar from "./components/Navbar/AppNavbar.jsx";
+import Login from "./pages/Login/Login.jsx";
+import Register from "./pages/Registro/Registro.jsx";
 
 function App() {
   return (
     <BrowserRouter>
+    <Navbar />
       <Routes>
-        <Route path="/" element={<Inicio />} />
+        <Route path="/" element={<Login />} />
 
+
+        <Route path="/Registro" element={<Register />} />
         <Route path="/admin/users" element={<Usuarios />} />
         <Route path="/admin/tipomascotas" element={<TipoMascotas />} />
         <Route path="/admin/habitaciones" element={<Habitaciones />} />
